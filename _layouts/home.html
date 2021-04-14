@@ -3,12 +3,15 @@ layout: default
 title: Home
 ---
 
-<div class="container text-center">
-  <form class="form-inline" id="search-form">
-    <input type="text" class="form-control" placeholder="Entres le numéro du pokémon ici !" id="search-input">
-    <input type="submit" class="btn btn-primary">
-  </form>
-  <ul id="results" class="list-inline"></ul>
+<div class="container py-2 poke-search">
+  <div class="poke-form input-group text-center">
+    <form class="container m-2" id="search-form">
+      <input type="text" class="form-control" placeholder="Entres le numéro du pokémon ici !" id="search-input">
+    </form>
+  </div>
+  <div class="poke-list">
+    <ul id="results" class="poke-display"></ul>
+  </div>
 </div>
 
    <script src="main.js"></script>
