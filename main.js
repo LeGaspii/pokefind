@@ -1,9 +1,9 @@
 const list = document.querySelector('#results');
 
 const insertPokemon = (data) => {
-      const pokeTag = `<li>
+      const pokeTag = `<li class="text-center">
+      <h3>${data.name}</h3>
       <img src="${data.sprites.other.dream_world.front_default}" alt="Pokemon image" />
-      <p>${data.name}</p>
     </li>`;
     list.insertAdjacentHTML('beforeend', pokeTag);
 }
