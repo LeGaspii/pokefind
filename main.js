@@ -3,7 +3,7 @@ const list = document.querySelector('#results');
 const insertPokemon = (data) => {
       const pokeTag = `<li class="text-center">
       <h3>${data.name}</h3>
-      <img src="${data.sprites.other.dream_world.front_default}" alt="Pokemon image" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
     </li>`;
     list.insertAdjacentHTML('beforeend', pokeTag);
 }
@@ -14,7 +14,7 @@ const fetchPokemon = (query) => {
     .then(insertPokemon);
 };
 
-fetchPokemon(Math.floor(Math.random() * 118)); // on 1st page load
+fetchPokemon(Math.floor(Math.random() * 898)); // on 1st page load
 
 const form = document.querySelector('#search-form');
 
