@@ -61,7 +61,7 @@ You can [download the files](https://github.com/PandaSekh/Jekyll-YAMT/releases/l
 1. [Fork this repo](https://github.com/PandaSekh/Jekyll-YAMT/generate). You can copy only master, set it to private or public and name it however you want.
 2. Go to [Netlify](https://app.netlify.com/), create a New site from Git, choose your repo or all repos, no difference. Back to Netlify, select the recently forked repo.
 3. Owner and branch are good to go. In build command write `bundle exec jekyll build` and publishing directory should be `_site/`.
-4. Deploy. Your site will shortly be available. Under domain settings you can change your subdomain, or add a primary level one. 
+4. Deploy. Your site will shortly be available. Under domain settings you can change your subdomain, or add a primary level one.
 
 ### Github Pages
 
@@ -75,7 +75,7 @@ Github Pages uses the [--safe flag](https://jekyllrb.com/docs/configuration/opti
 
 [Follow these instructions](https://help.github.com/en/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll).
 
-### Gem-based theme 
+### Gem-based theme
 1. Add this line to your Jekyll site's `Gemfile`:
 
     ```ruby
@@ -95,7 +95,7 @@ Github Pages uses the [--safe flag](https://jekyllrb.com/docs/configuration/opti
     ```
 
 4. Or install it yourself as:
-    
+
     ``` bash
     $ gem install jekyll-yamt
     ```
@@ -114,7 +114,7 @@ Under the `_data` folder there are three files: pages, settings and social.
 In pages you can add other pages that will show up in the nav-
 In social you can add your socials that will show up in the nav. To add a social, find a suitable icon on [FontAwesome](https://fontawesome.com/) and add it's name in the name tag.
 Brand defines Font Awesome's font type (fas is solid, fab is brand).
-Out of the box this theme has support colors for a bunch of social. If your social isn't supported, just add the color in the header.css 
+Out of the box this theme has support colors for a bunch of social. If your social isn't supported, just add the color in the header.css
 
 In `_data/settings.yml` you can activate or deactivate various functions of the theme, like analytics, disqus comments, related posts and so on.
 

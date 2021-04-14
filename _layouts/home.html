@@ -2,16 +2,29 @@
 layout: default
 title: Home
 ---
+
+<div class="container text-center">
+  <form class="form-inline" id="search-form">
+    <input type="text" class="form-control" placeholder="Entres le numéro du pokémon ici !" id="search-input">
+    <input type="submit" class="btn btn-primary">
+  </form>
+  <ul id="results" class="list-inline"></ul>
+</div>
+
+   <script src="main.js"></script>
+
+
+
 {% for post in paginator.posts %}
 
 <div class="post">
     <h2 id = "post-title"><a href="{{ post.url  | relative_url }}">{{ post.title }}</a></h2>
 
-    {% if site.data.settings.date-under-post.active %} 
+    {% if site.data.settings.date-under-post.active %}
     <div class = "post-info">
         <span>
             <i class="far fa-calendar" aria-hidden="true"></i>
-            <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time> - <i class="far fa-clock"></i> 
+            <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time> - <i class="far fa-clock"></i>
             {% include reading_time.html %}
         </span>
     </div>
@@ -35,7 +48,7 @@ title: Home
             {{ post.content | strip_html | truncatewords:50 }}
         {% endif %}
         <span class = "continue-reading"><a href="{{ post.url | relative_url }}">Continue reading...</a></span>
-    </p> 
+    </p>
 </div>
 {% endfor %}
 
