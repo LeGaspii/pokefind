@@ -1,1 +1,1 @@
-Sitemap: /sitemap.xml
+Sitemap: https://pandasekh.github.io/Jekyll-YAMT//sitemap.xml
