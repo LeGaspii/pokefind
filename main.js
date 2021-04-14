@@ -18,7 +18,7 @@ fetchPokemon(Math.floor(Math.random() * 118)); // on 1st page load
 
 const form = document.querySelector('#search-form');
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('keyup', (event) => {
   event.preventDefault();
   list.innerHTML = '';
   const input = document.querySelector('#search-input');
