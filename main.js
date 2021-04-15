@@ -35,6 +35,7 @@ answer.addEventListener('keyup', (event) => {
   if (input.value === pokeName) {
     score++;
     list.innerHTML = '';
+    pokeName = ""
     fetchPokemon(Math.floor(Math.random() * 898));
   }
 });
