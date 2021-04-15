@@ -4,7 +4,7 @@ const insertPokemon = (data) => {
       const pokeTag = `<li class="text-center">
       <h3>${data.name}</h3>
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
-    </li>`;
+      </li>`;
     list.insertAdjacentHTML('beforeend', pokeTag);
 }
 
