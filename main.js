@@ -4,16 +4,20 @@ let score = 0;
 
 const insertPokemon = (data) => {
       const pokeTag = `
-      <h3>${score}</h3>
+      <h3 class="score">${score}</h3>
       <li class="text-center">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
       </li>`;
     list.insertAdjacentHTML('beforeend', pokeTag);
-    pokeName = data.name;
+    if(data.names[3].language.name === "fr") {
+      pokeName = data.names[3].name;
+    } else if (data.names[4].language.name === "fr") {
+      pokeName = data.names[4].name;
+    }
 }
 
 const fetchPokemon = (query) => {
-  fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
+  fetch(`https://pokeapi.co/api/v2/pokemon-species/${query}`)
     .then(response => response.json())
     .then(insertPokemon);
 };
