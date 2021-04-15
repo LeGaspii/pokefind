@@ -4,7 +4,7 @@ let score = 0;
 
 const insertPokemon = (data) => {
       const pokeTag = `
-      <h3>${score}</h3>
+      <h3 class="score">${score}</h3>
       <li class="text-center">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
       </li>`;
