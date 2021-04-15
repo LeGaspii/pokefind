@@ -51,3 +51,10 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 background-attachment: fixed;
 background-size: cover;
 }
+
+.score {
+  background: rgba(76, 175, 80, 0.3);
+  width: 50px;
+  text-align: center;
+  border-radius: 6px;
+}

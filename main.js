@@ -1,11 +1,15 @@
 const list = document.querySelector('#results');
+let pokeName = "";
+let score = 0;
 
 const insertPokemon = (data) => {
-      const pokeTag = `<li class="text-center">
-      <h3>${data.name}</h3>
+      const pokeTag = `
+      <h3>${score}</h3>
+      <li class="text-center">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
       </li>`;
     list.insertAdjacentHTML('beforeend', pokeTag);
+    pokeName = data.name;
 }
 
 const fetchPokemon = (query) => {
@@ -16,11 +20,14 @@ const fetchPokemon = (query) => {
 
 fetchPokemon(Math.floor(Math.random() * 898)); // on 1st page load
 
-const form = document.querySelector('#search-form');
+const answer = document.querySelector('#answer-form');
 
-form.addEventListener('keyup', (event) => {
+answer.addEventListener('keyup', (event) => {
   event.preventDefault();
-  list.innerHTML = '';
-  const input = document.querySelector('#search-input');
-  fetchPokemon(input.value);
+  const input = document.querySelector('#answer-input');
+  if (input.value === pokeName) {
+    score++;
+    list.innerHTML = '';
+    fetchPokemon(Math.floor(Math.random() * 898));
+  }
 });
