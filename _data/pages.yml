@@ -1,4 +1,5 @@
 pages:
+  - {name: '1ere génération', url: '151.html'}
+  - {name: '2eme génération', url: '2gen.html'}
+
   - {name: 'About', url: 'about.html'}
-  - {name: 'Contact', url: 'contact.html'}
-  - {name: 'Archive', url: 'archive.html'}

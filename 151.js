@@ -12,7 +12,7 @@ const insertPokemon = (data) => {
     if(data.names[3].language.name === "fr") {
       pokeName = data.names[3].name;
     } else if (data.names[4].language.name === "fr") {
-      pokeName = data.names[4].name.toLowerCase();
+      pokeName = data.names[4].name;
     }
 }
 
@@ -22,7 +22,7 @@ const fetchPokemon = (query) => {
     .then(insertPokemon);
 };
 
-window.addEventListener("load", fetchPokemon(Math.floor(Math.random() * 898)));
+window.addEventListener("load", fetchPokemon(Math.floor(Math.random() * 151)));
 // fetchPokemon(Math.floor(Math.random() * 898)); // on 1st page load
 
 const answer = document.querySelector('#answer-form');
@@ -32,7 +32,7 @@ answer.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.ke
 answer.addEventListener('keyup', (event) => {
   event.preventDefault();
   const input = document.querySelector('#answer-input');
-  if (input.value.toLowerCase(); === pokeName) {
+  if (input.value === pokeName) {
     score++;
     list.innerHTML = '';
     pokeName = ""

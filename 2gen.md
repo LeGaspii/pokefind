@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Pokéfind
+title: Pokéfind - Les 151 originaux
 ---
 
 <div class="container py-2 poke-search">
@@ -14,7 +14,7 @@ title: Pokéfind
   </form>
 </div>
 
-   <script src="main.js"></script>
+   <script src="2gen.js"></script>
 
 
 
