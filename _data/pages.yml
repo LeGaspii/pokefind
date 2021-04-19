@@ -1,3 +1,4 @@
 pages:
   - {name: 'About', url: 'about.html'}
-  - {name: '151', url: '151.html'}
+  - {name: '1ere génération', url: '151.html'}
+  - {name: '2eme génération', url: '2gen.html'}

@@ -22,7 +22,7 @@ const fetchPokemon = (query) => {
     .then(insertPokemon);
 };
 
-window.addEventListener("load", fetchPokemon(Math.floor(Math.random() * 151)));
+window.addEventListener("load", fetchPokemon(Math.floor(Math.random() * (252 - 152 + 1))+152));
 // fetchPokemon(Math.floor(Math.random() * 898)); // on 1st page load
 
 const answer = document.querySelector('#answer-form');

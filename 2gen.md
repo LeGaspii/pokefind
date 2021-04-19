@@ -14,7 +14,7 @@ title: Pokéfind - Les 151 originaux
   </form>
 </div>
 
-   <script src="main.js"></script>
+   <script src="2gen.js"></script>
 
 
 
