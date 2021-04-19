@@ -49,5 +49,6 @@ answer.addEventListener('keyup', (event) => {
     list.innerHTML = '';
     pokeName = "";
     fetchPokemon(Math.floor(Math.random() * 898));
+    // document.querySelector('#answer-input').value = '';
   }
 });
