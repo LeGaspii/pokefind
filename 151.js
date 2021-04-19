@@ -2,6 +2,7 @@ const list = document.querySelector('#results');
 let pokeName = "";
 let score = 0;
 
+// ajouter l'image du pokémon à la page
 const insertPokemon = (data) => {
       const pokeTag = `
       <p class="score">${score}</p>
@@ -16,19 +17,34 @@ const insertPokemon = (data) => {
     }
 }
 
+// ajouter une aide avec le nombre de lettres du nom
+const insertPokemonName = (data) => {
+      const len = pokeName.length
+      pokeHide = "_ ".repeat(len);
+      const pokName = `<div class="info">
+      <p class="pokehide text-center w-100">${pokeHide}(${(len)})</p>
+      </div>`;
+    list.insertAdjacentHTML('beforeend', pokName);
+}
+
+// le fetch
 const fetchPokemon = (query) => {
   fetch(`https://pokeapi.co/api/v2/pokemon-species/${query}`)
     .then(response => response.json())
-    .then(insertPokemon);
+    .then(insertPokemon)
+    .then(insertPokemonName);
 };
 
+// au chargement de la page, il y a le premier test
 window.addEventListener("load", fetchPokemon(Math.floor(Math.random() * 151)));
-// fetchPokemon(Math.floor(Math.random() * 898)); // on 1st page load
+
 
 const answer = document.querySelector('#answer-form');
-// prevent enter to relaod
+
+// prevent enter to reload
 answer.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
 
+// l'écouteur de réponse et la réinitialisation
 answer.addEventListener('keyup', (event) => {
   event.preventDefault();
   const input = document.querySelector('#answer-input');

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Pokéfind - Les 151 originaux
+title: Pokéfind - La deuxième génération
 ---
 
 <div class="container py-2 poke-search">

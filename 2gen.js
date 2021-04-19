@@ -16,10 +16,20 @@ const insertPokemon = (data) => {
     }
 }
 
+const insertPokemonName = (data) => {
+      const len = pokeName.length
+      pokeHide = "_ ".repeat(len);
+      const pokName = `<div class="info">
+      <p class="pokehide text-center w-100">${pokeHide}(${(len)})</p>
+      </div>`;
+    list.insertAdjacentHTML('beforeend', pokName);
+}
+
 const fetchPokemon = (query) => {
   fetch(`https://pokeapi.co/api/v2/pokemon-species/${query}`)
     .then(response => response.json())
-    .then(insertPokemon);
+    .then(insertPokemon)
+    .then(insertPokemonName);
 };
 
 window.addEventListener("load", fetchPokemon(Math.floor(Math.random() * (252 - 152 + 1))+152));

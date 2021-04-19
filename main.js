@@ -3,8 +3,9 @@ let pokeName = "";
 let score = 0;
 
 const insertPokemon = (data) => {
-      const pokeTag = `
+      const pokeTag = `<div class="info">
       <p class="score">${score}</p>
+      </div>
       <div class="text-center">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
       </div>`;
@@ -16,10 +17,21 @@ const insertPokemon = (data) => {
     }
 }
 
+const insertPokemonName = (data) => {
+      const len = pokeName.length
+      pokeHide = "_ ".repeat(len);
+      const pokName = `<div class="info">
+      <p class="pokehide text-center w-100">${pokeHide}(${(len)})</p>
+      </div>`;
+    list.insertAdjacentHTML('beforeend', pokName);
+}
+
+
 const fetchPokemon = (query) => {
   fetch(`https://pokeapi.co/api/v2/pokemon-species/${query}`)
     .then(response => response.json())
-    .then(insertPokemon);
+    .then(insertPokemon)
+    .then(insertPokemonName);
 };
 
 window.addEventListener("load", fetchPokemon(Math.floor(Math.random() * 898)));
@@ -35,7 +47,8 @@ answer.addEventListener('keyup', (event) => {
   if (input.value.toLowerCase() === pokeName) {
     score++;
     list.innerHTML = '';
-    pokeName = ""
+    pokeName = "";
     fetchPokemon(Math.floor(Math.random() * 898));
+    // document.querySelector('#answer-input').value = '';
   }
 });
