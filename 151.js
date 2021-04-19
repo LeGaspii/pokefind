@@ -36,6 +36,6 @@ answer.addEventListener('keyup', (event) => {
     score++;
     list.innerHTML = '';
     pokeName = ""
-    fetchPokemon(Math.floor(Math.random() * 898));
+    fetchPokemon(Math.floor(Math.random() * 151));
   }
 });
