@@ -10,9 +10,9 @@ const insertPokemon = (data) => {
       </div>`;
     list.insertAdjacentHTML('beforeend', pokeTag);
     if(data.names[3].language.name === "fr") {
-      pokeName = data.names[3].name;
+      pokeName = data.names[3].name.toLowerCase();
     } else if (data.names[4].language.name === "fr") {
-      pokeName = data.names[4].name;
+      pokeName = data.names[4].name.toLowerCase();
     }
 }
 
@@ -32,7 +32,7 @@ answer.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.ke
 answer.addEventListener('keyup', (event) => {
   event.preventDefault();
   const input = document.querySelector('#answer-input');
-  if (input.value === pokeName) {
+  if (input.value.toLowerCase() === pokeName) {
     score++;
     list.innerHTML = '';
     pokeName = ""
