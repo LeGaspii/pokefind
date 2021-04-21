@@ -24,6 +24,7 @@ const insertPokemonName = (data) => {
       <p class="pokehide text-center w-100">${pokeHide}(${(len)})</p>
       </div>`;
     list.insertAdjacentHTML('beforeend', pokName);
+    document.title = `${pokeHide} - Peux-tu le trouver ?`;
 }
 
 
