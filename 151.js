@@ -15,6 +15,18 @@ const insertPokemon = (data) => {
     } else if (data.names[4].language.name === "fr") {
       pokeName = data.names[4].name.toLowerCase();
     }
+    displayScore();
+}
+
+// affichage du score sur en titre
+const displayScore = () => {
+  if(score == 0) {
+    document.title = `Pas encore de bonne réponses ! Tu vas y arriver`;
+  } else if(score == 1) {
+    document.title = `Bravo ! Déjà une bonne réponse !`;
+  } else {
+    document.title = `Bravo ! ${score} bonnes réponses !`;
+  }
 }
 
 // ajouter une aide avec le nombre de lettres du nom

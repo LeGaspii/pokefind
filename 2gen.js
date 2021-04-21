@@ -3,17 +3,29 @@ let pokeName = "";
 let score = 0;
 
 const insertPokemon = (data) => {
-      const pokeTag = `
-      <p class="score">${score}</p>
-      <div class="text-center">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
-      </div>`;
-    list.insertAdjacentHTML('beforeend', pokeTag);
-    if(data.names[3].language.name === "fr") {
-      pokeName = data.names[3].name.toLowerCase();
-    } else if (data.names[4].language.name === "fr") {
-      pokeName = data.names[4].name.toLowerCase();
-    }
+  const pokeTag = `
+    <p class="score">${score}</p>
+    <div class="text-center">
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
+    </div>`;
+  list.insertAdjacentHTML('beforeend', pokeTag);
+  if(data.names[3].language.name === "fr") {
+    pokeName = data.names[3].name.toLowerCase();
+  } else if (data.names[4].language.name === "fr") {
+    pokeName = data.names[4].name.toLowerCase();
+  }
+  displayScore();
+}
+
+// affichage du score sur en titre
+const displayScore = () => {
+  if(score == 0) {
+    document.title = `Pas encore de bonne réponses ! Tu vas y arriver`;
+  } else if(score == 1) {
+    document.title = `Bravo ! Déjà une bonne réponse !`;
+  } else {
+    document.title = `Bravo ! ${score} bonnes réponses !`;
+  }
 }
 
 const insertPokemonName = (data) => {
