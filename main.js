@@ -11,8 +11,9 @@ const fetchPokemon = (query) => {
   };
 
 const insertPokemon = (data) => {
-      const pokeTag = `<div class="info">
-      <p class="score">${score}</p>
+    const hiScore = JSON.parse(localStorage.getItem('pokeScore')) || 0;
+    const pokeTag = `<div class="score-info">
+      <p class="score">${score} -- High ${hiScore}</p>
       </div>
       <div class="text-center">
       <img class="pokeImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
@@ -61,6 +62,9 @@ answer.addEventListener('keyup', (event) => {
   const input = document.querySelector('#answer-input');
   if (input.value.toLowerCase() === pokeName) {
     score++;
+    if(score > hiScore) {
+      localStorage.setItem('pokeScore', JSON.stringify(score));
+    }
     list.innerHTML = '';
     pokeName = "";
     fetchPokemon(Math.floor(Math.random() * 898));
