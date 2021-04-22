@@ -3,18 +3,19 @@ let pokeName = "";
 let score = 0;
 
 const insertPokemon = (data) => {
-  const pokeTag = `
-    <p class="score">${score}</p>
-    <div class="text-center">
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
-    </div>`;
-  list.insertAdjacentHTML('beforeend', pokeTag);
-  if(data.names[3].language.name === "fr") {
-    pokeName = data.names[3].name.toLowerCase();
-  } else if (data.names[4].language.name === "fr") {
-    pokeName = data.names[4].name.toLowerCase();
-  }
-  displayScore();
+    const hiScore = JSON.parse(localStorage.getItem('pokeScore2')) || 0;
+    const pokeTag = `<div class="score-info">
+      <p class="score">${score} -- High ${hiScore}</p>
+      </div>
+      <div class="text-center">
+      <img class="pokeImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="Pokemon image" />
+      </div>`;
+    list.insertAdjacentHTML('beforeend', pokeTag);
+    if(data.names[3].language.name === "fr") {
+      pokeName = data.names[3].name.toLowerCase();
+    } else if (data.names[4].language.name === "fr") {
+      pokeName = data.names[4].name.toLowerCase();
+    }
 }
 
 // affichage du score sur en titre
@@ -56,6 +57,9 @@ answer.addEventListener('keyup', (event) => {
   const input = document.querySelector('#answer-input');
   if (input.value.toLowerCase() === pokeName) {
     score++;
+    if(score > hiScore) {
+      localStorage.setItem('pokeScore2', JSON.stringify(score));
+    }
     list.innerHTML = '';
     pokeName = ""
     fetchPokemon(Math.floor(Math.floor(Math.random() * (252 - 152 + 1))+152));
