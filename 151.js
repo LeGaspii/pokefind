@@ -63,6 +63,7 @@ answer.addEventListener('keyup', (event) => {
   const input = document.querySelector('#answer-input');
   if (input.value.toLowerCase() === pokeName) {
     score++;
+    const hiScore = JSON.parse(localStorage.getItem('pokeScore1')) || 0;
     if(score > hiScore) {
       localStorage.setItem('pokeScore1', JSON.stringify(score));
     }
